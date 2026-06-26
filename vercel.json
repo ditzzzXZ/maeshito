@@ -1,7 +1,10 @@
 {
   "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "rewrites": [
-    { "source": "/rA", "destination": "/rA/rA.js" },
-    { "source": "/rA/docs", "destination": "/rA/index.html" }
+    { "source": "/rA",        "destination": "/api/rA.js" },
+    { "source": "/rA/",       "destination": "/api/rA.js" },
+    { "source": "/rA/docs",   "destination": "/_docs/rA.html" }
   ]
 }
