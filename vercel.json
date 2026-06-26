@@ -3,8 +3,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/rA",        "destination": "/api/rA.js" },
-    { "source": "/rA/",       "destination": "/api/rA.js" },
-    { "source": "/rA/docs",   "destination": "/_docs/rA.html" }
+    {
+      "source": "/rA",
+      "destination": "/api/rA.js"
+    },
+    {
+      "source": "/rA/docs",
+      "destination": "/docs/rA.html"
+    }
   ]
 }
