@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/rA", "destination": "/rA/rA.js" },
+    { "source": "/rA/docs", "destination": "/rA/index.html" }
+  ]
+}
