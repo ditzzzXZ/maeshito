@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 - Error!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;700&display=swap');
+
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      overflow-x: hidden;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 80px;
+    }
+
+    /* Subtle noise texture via pseudo-element */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 24px;
+    }
+
+    /* Glowing side bars flanking the title */
+    .title-wrapper {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .side-bar {
+      width: 6px;
+      height: 80px;
+      border-radius: 3px;
+      background: linear-gradient(180deg, #ff2222, #ff6600, #ff2222);
+      background-size: 100% 200%;
+      animation: barPulse 2s ease-in-out infinite;
+      box-shadow: 0 0 12px #ff2222, 0 0 28px #ff4400;
+    }
+
+    .side-bar.right {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes barPulse {
+      0%, 100% { background-position: 0% 0%; opacity: 1; }
+      50% { background-position: 0% 100%; opacity: 0.6; }
+    }
+
+    h1 {
+      font-family: 'Bebas Neue', 'Impact', sans-serif;
+      font-size: clamp(72px, 15vw, 140px);
+      font-style: italic;
+      font-weight: 900;
+      letter-spacing: 4px;
+      /* Bright red with glow */
+      color: #ff2222;
+      text-shadow:
+        0 0 10px #ff0000,
+        0 0 30px #ff2222,
+        0 0 60px #ff4400,
+        2px 2px 0px #7a0000;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .description {
+      margin-top: 28px;
+      font-size: clamp(18px, 3.5vw, 28px);
+      font-weight: 400;
+      color: #ffffff;
+      line-height: 1.55;
+      max-width: 600px;
+      opacity: 0.92;
+      letter-spacing: 0.3px;
+    }
+
+    .description span {
+      display: block;
+    }
+
+    /* ── Snail track at bottom ─────────────────────────────────── */
+    .snail-track {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      overflow: hidden;
+      z-index: 10;
+    }
+
+    /* Dotted trail left behind */
+    .trail {
+      position: absolute;
+      bottom: 18px;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: repeating-linear-gradient(
+        to right,
+        transparent,
+        transparent 8px,
+        rgba(255, 255, 255, 0.18) 8px,
+        rgba(255, 255, 255, 0.18) 14px
+      );
+    }
+
+    .snail {
+      position: absolute;
+      bottom: 10px;
+      font-size: 40px;
+      line-height: 1;
+      /* Start off the right edge, end past the left edge */
+      animation: crawl 9s linear infinite;
+      filter: drop-shadow(0 2px 6px rgba(255,255,255,0.15));
+      /* Flip emoji so snail faces left */
+      transform: scaleX(-1);
+    }
+
+    @keyframes crawl {
+      0%   { right: -60px; }
+      100% { right: calc(100% + 60px); }
+    }
+
+    /* Entrance fade for main content */
+    .container {
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="title-wrapper">
+      <div class="side-bar left"></div>
+      <h1>Eror!</h1>
+      <div class="side-bar right"></div>
+    </div>
+
+    <p class="description">
+      <span>We're sorry about this trouble,</span>
+      <span>we're gonna fix this right away!</span>
+      <span>Just wait!</span>
+    </p>
+  </div>
+
+  <!-- Snail at the bottom -->
+  <div class="snail-track">
+    <div class="trail"></div>
+    <span class="snail">🐌</span>
+  </div>
+
+</body>
+  </html>
